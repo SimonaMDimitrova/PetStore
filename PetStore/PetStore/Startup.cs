@@ -9,7 +9,7 @@ namespace PetStore
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using PetStore.Data;
-    using PetStore.Models;
+    using PetStore.Data.Models;
 
     public class Startup
     {

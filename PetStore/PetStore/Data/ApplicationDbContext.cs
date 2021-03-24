@@ -5,7 +5,6 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Options;
     using PetStore.Data.Models;
-    using PetStore.Models;
 
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
@@ -23,5 +22,9 @@
         public DbSet<ProductType> ProductTypes { get; set; }
 
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<ProductOrder> ProductOrders { get; set; }
     }
 }
