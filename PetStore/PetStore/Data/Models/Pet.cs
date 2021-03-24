@@ -8,12 +8,8 @@
         public Pet()
         {
             this.Id = Guid.NewGuid().ToString();
-
-            this.Breeds = new HashSet<Breed>();
         }
 
         public string Name { get; set; }
-
-        public ICollection<Breed> Breeds { get; set; }
     }
 }

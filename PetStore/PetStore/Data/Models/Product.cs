@@ -22,8 +22,8 @@
 
         public ProductType ProductType { get; set; }
 
-        public string BreedId { get; set; }
+        public string PetId { get; set; }
 
-        public Breed Breed { get; set; }
+        public Pet Pet { get; set; }
     }
 }

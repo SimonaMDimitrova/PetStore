@@ -17,8 +17,6 @@
 
         public DbSet<Pet> Pets { get; set; }
 
-        public DbSet<Breed> Breeds { get; set; }
-
         public DbSet<ProductType> ProductTypes { get; set; }
 
         public DbSet<Product> Products { get; set; }
