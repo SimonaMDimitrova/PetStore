@@ -1,14 +1,83 @@
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.15.2/css/all.css');
+
+/* reset css */
+* {
+    padding: 0;
+    margin: 0;
 }
 
-code {
-  color: #E01A76;
+    *, *:before, *::after {
+        box-sizing: inherit;
+    }
+
+html {
+    box-sizing: border-box
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+/* typography css */
+html {
+    font: 14px/1.5 "Lato", sans-serif;
 }
+
+body, form, input, textarea, option, select, button {
+    font: inherit;
+}
+
+p, ul, ol {
+    padding-bottom: 0.5em;
+}
+
+ul, ol {
+    padding-left: 2.5em;
+}
+
+blockquote,
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2.6em;
+}
+
+h2 {
+    font-size: 2.0em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.2em;
+}
+
+h6 {
+    font-size: 1.0em;
+}
+
+blockquote {
+    padding: 0 2.5em;
+    border-left: 2px solid red;
+    margin-bottom: 1.5em;
+}
+
+    blockquote p {
+        font-style: italic;
+    }
+
+        blockquote p:last-child {
+            padding-bottom: 0px;
+        }
