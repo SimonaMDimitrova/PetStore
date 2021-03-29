@@ -5,6 +5,8 @@ PetStore is simple SPA application. E-commerce site for purchasing pet related p
 - ReactJS
 - ASP.NET Core 5.0
 - ASP.NET Core Web API
+- Entity Framework Core 5.0
+- MSSQL Server
 
 ## Licence
 This project is licensed with the <a href="https://github.com/SimonaMDimitrova/PetStore/blob/main/LICENSE">MIT license</a>.
