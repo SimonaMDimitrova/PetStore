@@ -5,14 +5,14 @@ import style from './Navbar.css';
 
 const Navbar = () => {
     return (
-        <nav class="navbar-wrapper">
-            <ul class="navbar-items">
-                <li class="navbar-item"><Link to="/products"><i class="fas fa-paw"></i> PetStore</Link></li>
+        <nav className="navbar-wrapper">
+            <ul className="navbar-items">
+                <li className="navbar-item"><Link to="/products"><i className="fas fa-paw"></i> PetStore</Link></li>
 
                 <NavbarItem link="products">Products</NavbarItem>
                 <NavbarItem link="contacts">Contacts</NavbarItem>
 
-                <li class="navbar-item"><Link to="/cart"><i class="fas fa-shopping-cart"></i></Link></li>
+                <li className="navbar-item"><Link to="/cart"><i className="fas fa-shopping-cart"></i></Link></li>
             </ul>
         </nav>
     );

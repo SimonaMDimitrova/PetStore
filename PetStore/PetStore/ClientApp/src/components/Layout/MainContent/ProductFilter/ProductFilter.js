@@ -3,11 +3,11 @@ import style from './ProductFilter.css'
 
 const ProductFilter = () => {
     return (
-        <section class="filter-wrapper">
+        <section className="filter-wrapper">
             <h3>Search</h3>
             <label for="">Some text here</label>
-            <input type="text" class="input-control" />
-            <input type="submit" value="Search" class="btn" />
+            <input type="text" className="input-control" />
+            <input type="submit" value="Search" className="btn" />
         </section>
     );
 };

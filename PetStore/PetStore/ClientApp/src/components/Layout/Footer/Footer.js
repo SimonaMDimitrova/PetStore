@@ -3,7 +3,7 @@ import style from './Footer.css';
 
 const Footer = () => {
     return (
-        <footer class="footer-container">
+        <footer className="footer-container">
             <p>&copy; 2021 All Right Reserved</p>
         </footer>
     );

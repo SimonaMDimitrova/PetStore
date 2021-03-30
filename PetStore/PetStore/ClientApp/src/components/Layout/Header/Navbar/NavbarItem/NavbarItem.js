@@ -4,7 +4,7 @@ import style from './NavbarItem.css';
 
 const NavbarItem = (props) => {
     return (
-        <li class="navbar-item"><Link to={`/${props.link}`}>{props.children}</Link></li>
+        <li className="navbar-item"><Link to={`/${props.link}`}>{props.children}</Link></li>
     );
 };
 

@@ -4,24 +4,24 @@ import style from './MainContent.css';
 
 const MainContent = () => {
     return (
-        <main class="main-content">
-            <section class="main-content-container">
+        <main className="main-content">
+            <section className="main-content-container">
                 <ProductFilter />
 
-                <section class="products-wrapper single-product">
-                    <h3 class="product-header">Contact us</h3>
+                <section className="products-wrapper single-product">
+                    <h3 className="product-header">Contact us</h3>
 
                     <form action="">
-                        <article class="group-control">
-                            <label for="" class="group-control">Message title</label>
-                            <input type="text" class="input-control input-default" />
+                        <article className="group-control">
+                            <label for="" className="group-control">Message title</label>
+                            <input type="text" className="input-control input-default" />
                         </article>
 
-                        <textarea type="text" class="input-control input-default">
+                        <textarea type="text" className="input-control input-default">
                             Enter your message here!
                         </textarea>
 
-                        <input type="submit" value="Send e-mail!" class="btn btn-primary" />
+                        <input type="submit" value="Send e-mail!" className="btn btn-primary" />
                     </form>
                 </section>
             </section>
