@@ -9,7 +9,7 @@ const Navbar = () => {
             <ul className="navbar-items">
                 <li className="navbar-item"><Link to="/products"><i className="fas fa-paw"></i> PetStore</Link></li>
 
-                <NavbarItem link="products">Products</NavbarItem>
+                <NavbarItem link="">Products</NavbarItem>
                 <NavbarItem link="contacts">Contacts</NavbarItem>
 
                 <li className="navbar-item"><Link to="/cart"><i className="fas fa-shopping-cart"></i></Link></li>

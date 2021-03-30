@@ -1,0 +1,32 @@
+﻿.product-container {
+    max-width: 14.6em;
+    padding: 0.4em;
+    margin: 0.2em;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+    .product-container > .btn {
+        width: 100%;
+        border-radius: unset;
+    }
+
+.product-in-search-price {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 900;
+}
+
+.product-in-search-header {
+    text-align: center;
+    border-bottom: 1px solid darkgray;
+}
+
+.product-in-search-image-container {
+    height: 10em;
+    overflow: hidden;
+}
+
+.product-in-search-image {
+    height: 100%;
+}

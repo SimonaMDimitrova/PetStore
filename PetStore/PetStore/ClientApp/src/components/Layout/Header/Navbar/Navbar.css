@@ -3,7 +3,7 @@
     position: fixed;
     width: 100%;
     left: 0;
-    top: 0.5em;
+    border-top: 1em solid #fff;
     font-family: 'Montserrat';
 }
 
