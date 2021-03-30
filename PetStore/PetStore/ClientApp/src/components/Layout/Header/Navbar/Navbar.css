@@ -1,0 +1,39 @@
+﻿.navbar-wrapper {
+    background: #297d7d;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0.5em;
+    font-family: 'Montserrat';
+}
+
+.navbar-items {
+    max-width: 60em;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-item a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar-item:first-child {
+    font-size: 2.5em;
+    flex-basis: 100%;
+}
+
+    .navbar-item:first-child a {
+        text-transform: none;
+    }
+
+.navbar-item:last-child {
+    font-size: 1.7em;
+}
+
+.navbar-item:not(:first-child) {
+    margin-left: 0.7em;
+}

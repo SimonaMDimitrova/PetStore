@@ -1,0 +1,8 @@
+﻿.filter-wrapper {
+    padding: 0.7em;
+}
+
+.filter-wrapper {
+    max-width: 17em;
+    border-right: 1px solid lightgray;
+}
