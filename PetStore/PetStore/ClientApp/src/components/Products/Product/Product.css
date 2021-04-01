@@ -26,6 +26,7 @@
 .product-in-search-image-container {
     height: 10em;
     overflow: hidden;
+    position: relative;
 }
 
 .product-in-search-image {
@@ -37,4 +38,13 @@
     text-align: center;
     position: relative;
     top: 1em;
+}
+.delete-product {
+    position: absolute;
+    background: none;
+    border: none;
+    right: 0;
+    margin: 0 4px 0 0;
+    color: red;
+    font-size: 1.5em;
 }
