@@ -6,6 +6,7 @@ import Contacts from '../../Contacts/Contacts';
 import SingleProduct from '../../SingleProduct/SingleProduct';
 import AddProduct from '../../AddProduct/AddProduct';
 import EditProduct from '../../EditProduct/EditProduct';
+import Cart from '../../Cart/Cart';
 import style from './MainContent.css';
 
 const MainContent = () => {
@@ -20,6 +21,7 @@ const MainContent = () => {
                     <Route path='/products/product' component={SingleProduct} />
                     <Route path='/addProduct' component={AddProduct} />
                     <Route path='/editProduct' component={EditProduct} />
+                    <Route path='/cart' component={Cart} />
                 </Switch>
             </section>
     </main>
