@@ -1,7 +1,8 @@
 ﻿import React from 'react';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 import ProductFilter from './ProductFilter/ProductFilter';
 import Products from '../../Products/Products';
+import Contacts from '../../Contacts/Contacts';
 import style from './MainContent.css';
 
 const MainContent = () => {
@@ -10,7 +11,10 @@ const MainContent = () => {
             <section className="main-content-container">
                 <ProductFilter />
 
-                <Route exact path='/' component={Products} />
+                <Switch>
+                    <Route exact path='/' component={Products} />
+                    <Route path='/contacts' component={Contacts} />
+                </Switch>
             </section>
     </main>
     );

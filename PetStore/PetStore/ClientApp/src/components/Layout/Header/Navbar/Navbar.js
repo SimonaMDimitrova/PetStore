@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className="navbar-wrapper">
             <ul className="navbar-items">
-                <li className="navbar-item"><Link to="/products"><i className="fas fa-paw"></i> PetStore</Link></li>
+                <li className="navbar-item"><Link to="/"><i className="fas fa-paw"></i> PetStore</Link></li>
 
                 <NavbarItem link="">Products</NavbarItem>
                 <NavbarItem link="contacts">Contacts</NavbarItem>
