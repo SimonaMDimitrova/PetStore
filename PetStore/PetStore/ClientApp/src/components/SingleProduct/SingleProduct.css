@@ -1,0 +1,39 @@
+﻿.single-product-container {
+    display: flex;
+}
+
+    .single-product-container>article {
+        width: 50%;
+    }
+
+.single-product-image-container img {
+    width: 100%;
+}
+
+.single-product-description {
+    padding: 1em;
+}
+
+.single-product-add-to-cart {
+    width: 100%;
+    position: relative;
+    bottom: 14px;
+}
+
+.product-count {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.increase-product-count {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 0.7em;
+    width: 100px;
+}
+
+.product-in-search-price .single {
+    position: relative;
+    left: 68px;
+    font-size: 2em;
+}

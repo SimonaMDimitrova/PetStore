@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import ProductFilter from './ProductFilter/ProductFilter';
 import Products from '../../Products/Products';
 import Contacts from '../../Contacts/Contacts';
+import SingleProduct from '../../SingleProduct/SingleProduct';
 import style from './MainContent.css';
 
 const MainContent = () => {
@@ -14,6 +15,7 @@ const MainContent = () => {
                 <Switch>
                     <Route exact path='/' component={Products} />
                     <Route path='/contacts' component={Contacts} />
+                    <Route path='/products/product' component={SingleProduct} />
                 </Switch>
             </section>
     </main>

@@ -1,11 +1,12 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './Product.css'
 
 const Product = (props) => {
     return (
         <article className="product-container">
             <article className="product-in-search-image-container">
-                <img className="product-in-search-image" src={props.image} alt={props.productName} />
+                <Link to={`/products/product`}><img className="product-in-search-image" src={props.image} alt={props.productName} /></Link>
             </article>
 
             <h4 className="product-in-search-header">{props.productName}</h4>
