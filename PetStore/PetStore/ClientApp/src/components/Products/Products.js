@@ -1,10 +1,12 @@
 ﻿import React from 'react';
+import { Link } from 'react-router-dom';
 import Product from './Product/Product'
 import style from './Products.css';
 
 const Products = () => {
     return (
         <section className="products-wrapper">
+            <Link to="/addProduct" className="btn btn-link">New product</Link>
             <h3>Found: 123 results</h3>
             <article className="products-container">
                 <Product

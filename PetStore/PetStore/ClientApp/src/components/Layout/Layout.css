@@ -1,5 +1,5 @@
 ﻿.layout-body {
-    max-width: 60em;
+    max-width: 838px;
     margin: 0 auto;
 }
 
@@ -55,4 +55,9 @@ form {
 
 .header {
     border-bottom: 1px solid darkgray;
+}
+
+.btn-link {
+    text-decoration: none;
+    margin-bottom: 1em;
 }
