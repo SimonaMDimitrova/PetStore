@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 
-const AddProduct = () => {
+const EditProduct = () => {
     return (
         <section className="products-wrapper single-product">
-            <h3 className="header">Add a new product</h3>
+            <h3 className="header">Edit product NAME</h3>
 
             <form action="">
                 <article className="group-control">
@@ -21,26 +21,14 @@ const AddProduct = () => {
                     <input type="number" className="input-control input-default" />
                 </article>
 
-                <article className="group-control">
-                    <label for="" className="group-control">Pet</label>
-                    <select className="input-control input-default">
-                        <option>Dog</option>
-                        <option>Cat</option>
-                    </select>
-                </article>
-
-                <article className="group-control">
-                    <label for="" className="group-control">Product type</label>
-                    <select className="input-control input-default">
-                        <option>Food</option>
-                        <option>Toys</option>
-                    </select>
-                </article>
-
                 <input type="submit" value="Send e-mail!" className="btn btn-primary" />
             </form>
         </section>
     );
 };
 
-export default AddProduct;
+//product.Name = input.Name;
+//product.Price = input.Price;
+//product.Capacity = input.Capacity;
+
+export default EditProduct;

@@ -12,6 +12,7 @@ const Product = (props) => {
             <h4 className="product-in-search-header">{props.productName}</h4>
             <p className="product-in-search-price">{props.price}</p>
             <button className="btn btn-primary">Add to cart</button>
+            <Link to="/editProduct" className="btn btn-link link-display-block">Edit</Link>
         </article>
     );
 };
