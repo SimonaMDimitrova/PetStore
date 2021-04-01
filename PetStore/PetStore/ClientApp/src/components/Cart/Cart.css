@@ -1,36 +1,4 @@
-﻿.table {
-    width: 100%;
-    margin: 1em 0 0 0;
-}
-
-.table-head {
-    background: #297d7d;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-.th {
-    padding: 0.5em;
-    border-bottom: 3px solid #c8a37d;
-}
-
-.tr {
-    border: 1px solid lightgray;
-}
-
-.td {
-    background: #ebebeb;
-    padding: 0.5em;
-}
-
-.all-price {
-    border-top: 3px solid #297d7d;
-    background: #cecece;
-    text-align: center;
-}
-
-.btn-position {
+﻿.btn-position {
     position: relative;
     top: 0.4em;
 }
