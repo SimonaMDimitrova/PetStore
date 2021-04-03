@@ -1,7 +1,12 @@
-﻿import React from 'react';
-import style from './SingleProduct.css';
+﻿import React, { useEffect } from 'react';
+
+import './SingleProduct.css';
 
 const SingleProduct = () => {
+    useEffect(() => {
+        document.title = "Single product NAME";
+    }, []);
+
     return (
         <section className="products-wrapper single-product">
             <h3 className="header">Title of product</h3>

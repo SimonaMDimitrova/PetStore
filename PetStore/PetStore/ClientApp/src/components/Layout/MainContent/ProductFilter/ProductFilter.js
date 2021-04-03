@@ -1,5 +1,6 @@
 ﻿import React from 'react';
-import style from './ProductFilter.css'
+
+import './ProductFilter.css'
 
 const ProductFilter = () => {
     return (

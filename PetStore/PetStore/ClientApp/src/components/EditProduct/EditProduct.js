@@ -1,23 +1,27 @@
-﻿import React from 'react';
+﻿import React, { useEffect } from 'react';
 
 const EditProduct = () => {
+    useEffect(() => {
+        document.title = "Edit NAME product";
+    }, []);
+
     return (
         <section className="products-wrapper single-product">
             <h3 className="header">Edit product NAME</h3>
 
             <form action="">
                 <article className="group-control">
-                    <label for="" className="group-control">Name</label>
+                    <label htmlFor="" className="group-control">Name</label>
                     <input type="text" className="input-control input-default" />
                 </article>
 
                 <article className="group-control">
-                    <label for="" className="group-control">Price</label>
+                    <label htmlFor="" className="group-control">Price</label>
                     <input type="text" className="input-control input-default" />
                 </article>
 
                 <article className="group-control">
-                    <label for="" className="group-control">Capacity</label>
+                    <label htmlFor="" className="group-control">Capacity</label>
                     <input type="number" className="input-control input-default" />
                 </article>
 

@@ -1,7 +1,8 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
-import NavbarItem from './NavbarItem/NavbarItem'
-import style from './Navbar.css';
+import NavbarItem from './NavbarItem/NavbarItem';
+
+import './Navbar.css';
 
 const Navbar = () => {
     return (

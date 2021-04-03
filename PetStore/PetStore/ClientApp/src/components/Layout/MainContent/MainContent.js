@@ -8,7 +8,8 @@ import AddProduct from '../../AddProduct/AddProduct';
 import EditProduct from '../../EditProduct/EditProduct';
 import Cart from '../../Cart/Cart';
 import Order from '../../Order/Order';
-import style from './MainContent.css';
+
+import './MainContent.css';
 
 const MainContent = () => {
     return (
@@ -25,6 +26,7 @@ const MainContent = () => {
                     <Route path='/cart' component={Cart} />
                     <Route path='/order' component={Order} />
                 </Switch>
+
             </section>
     </main>
     );

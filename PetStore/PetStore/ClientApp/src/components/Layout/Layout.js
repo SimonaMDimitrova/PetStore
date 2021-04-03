@@ -2,7 +2,8 @@
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import MainContent from './MainContent/MainContent'
-import style from './Layout.css';
+
+import './Layout.css';
 
 const Layout = () => {
     return (

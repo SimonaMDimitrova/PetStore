@@ -1,9 +1,14 @@
-﻿import React from 'react';
+﻿import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Product from './Product/Product'
-import style from './Products.css';
+import Product from './Product/Product';
+
+import './Products.css';
 
 const Products = () => {
+    useEffect(() => {
+        document.title = "Products"
+    }, []);
+
     return (
         <section className="products-wrapper">
             <Link to="/addProduct" className="btn btn-link">New product</Link>

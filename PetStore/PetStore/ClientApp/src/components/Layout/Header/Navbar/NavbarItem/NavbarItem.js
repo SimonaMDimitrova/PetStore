@@ -1,6 +1,7 @@
-﻿import React, { Children } from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
-import style from './NavbarItem.css';
+
+import './NavbarItem.css';
 
 const NavbarItem = (props) => {
     return (

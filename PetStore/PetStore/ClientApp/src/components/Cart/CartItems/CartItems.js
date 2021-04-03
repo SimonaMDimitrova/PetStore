@@ -1,26 +1,27 @@
 ﻿import React from 'react';
-import style from './CartItems.css';
+
+import './CartItems.css';
 
 const CartItems = () => {
     return (
-        <table class="table">
-            <thead class="table-head">
-                <tr class="tr">
-                    <th class="th">Product</th>
-                    <th class="th">Price</th>
-                    <th class="th">Capacity</th>
+        <table className="table">
+            <thead className="table-head">
+                <tr className="tr">
+                    <th className="th">Product</th>
+                    <th className="th">Price</th>
+                    <th className="th">Capacity</th>
                 </tr>
             </thead>
-            <tbody class="table-body">
-                <tr class="tr">
-                    <td class="td">Product #1</td>
-                    <td class="td">100.00$</td>
-                    <td class="td">5</td>
+            <tbody className="table-body">
+                <tr className="tr">
+                    <td className="td">Product #1</td>
+                    <td className="td">100.00$</td>
+                    <td className="td">5</td>
                 </tr>
             </tbody>
-            <tfoot class="table-footer">
-                <tr class="tr">
-                    <td colspan="3" class="td all-price">All price: <strong>100.00$</strong></td>
+            <tfoot className="table-footer">
+                <tr className="tr">
+                    <td colSpan="3" className="td all-price">All price: <strong>100.00$</strong></td>
                 </tr>
             </tfoot>
         </table>

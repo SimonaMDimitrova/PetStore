@@ -1,14 +1,21 @@
-﻿import React from 'react';
-import style from './Contacts.css';
+﻿import React, { useEffect } from 'react';
 
 const Contacts = () => {
+    useEffect(() => {
+        document.title = "Pet store - Products"
+    }, []);
+
+    useEffect(() => {
+        document.title = "Contacts"
+    }, []);
+
     return (
         <section className="products-wrapper single-product">
             <h3 className="header">Contact us</h3>
 
             <form action="">
                 <article className="group-control">
-                    <label for="" className="group-control">Message title</label>
+                    <label htmlFor="" className="group-control">Message title</label>
                     <input type="text" className="input-control input-default" />
                 </article>
 
