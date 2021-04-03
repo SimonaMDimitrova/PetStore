@@ -6,12 +6,12 @@ import './Products.css';
 
 const Products = () => {
     useEffect(() => {
-        document.title = "Products"
+        document.title = "Pet store"
     }, []);
 
     return (
         <section className="products-wrapper">
-            <Link to="/addProduct" className="btn btn-link">New product</Link>
+            <Link to="/product/create" className="btn btn-link">New product</Link>
             <h3>Found: 123 results</h3>
             <article className="products-container">
                 <Product

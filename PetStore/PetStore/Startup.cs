@@ -10,6 +10,7 @@ namespace PetStore
     using Microsoft.Extensions.Hosting;
     using PetStore.Data;
     using PetStore.Data.Models;
+    using PetStore.Data.Seeding;
 
     public class Startup
     {
@@ -55,6 +56,7 @@ namespace PetStore
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 dbContext.Database.Migrate();
+                new ApplicationDbContextSeeder().SeedAsync(dbContext, serviceScope.ServiceProvider).GetAwaiter().GetResult();
             }
 
             if (env.IsDevelopment())

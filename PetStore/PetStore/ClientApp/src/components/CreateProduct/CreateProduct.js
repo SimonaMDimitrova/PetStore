@@ -1,15 +1,15 @@
 ﻿import React, { useEffect } from 'react';
 
-const AddProduct = () => {
+const CreateProduct = () => {
     useEffect(() => {
-        document.title = "Add new product";
+        document.title = "Create a product";
     }, []);
 
     return (
         <section className="products-wrapper single-product">
-            <h3 className="header">Add a new product</h3>
+            <h3 className="header">Create a product</h3>
 
-            <form action="">
+            <form>
                 <article className="group-control">
                     <label htmlFor="" className="group-control">Name</label>
                     <input type="text" className="input-control input-default" />
@@ -41,10 +41,15 @@ const AddProduct = () => {
                     </select>
                 </article>
 
-                <input type="submit" value="Send e-mail!" className="btn btn-primary" />
+                <article className="group-control">
+                    <label htmlFor="" className="group-control"></label>
+                    <input type="file" accept="image/png, image/jpeg" />
+                </article>
+
+                <input type="submit" value="Create" className="btn btn-primary" />
             </form>
         </section>
     );
 };
 
-export default AddProduct;
+export default CreateProduct;

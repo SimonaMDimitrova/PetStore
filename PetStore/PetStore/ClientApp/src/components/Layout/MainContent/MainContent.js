@@ -4,7 +4,7 @@ import ProductFilter from './ProductFilter/ProductFilter';
 import Products from '../../Products/Products';
 import Contacts from '../../Contacts/Contacts';
 import SingleProduct from '../../SingleProduct/SingleProduct';
-import AddProduct from '../../AddProduct/AddProduct';
+import CreateProduct from '../../CreateProduct/CreateProduct';
 import EditProduct from '../../EditProduct/EditProduct';
 import Cart from '../../Cart/Cart';
 import Order from '../../Order/Order';
@@ -21,7 +21,7 @@ const MainContent = () => {
                     <Route exact path='/' component={Products} />
                     <Route path='/contacts' component={Contacts} />
                     <Route path='/products/product' component={SingleProduct} />
-                    <Route path='/addProduct' component={AddProduct} />
+                    <Route path='/product/create' component={CreateProduct} />
                     <Route path='/editProduct' component={EditProduct} />
                     <Route path='/cart' component={Cart} />
                     <Route path='/order' component={Order} />
