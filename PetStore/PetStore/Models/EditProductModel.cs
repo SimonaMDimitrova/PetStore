@@ -11,7 +11,7 @@
         [MaxLength(70)]
         public string Name { get; set; }
 
-        [Range(1.00, double.MaxValue)]
+        [Range(0.01, double.MaxValue)]
         public double Price { get; set; }
 
         [Range(0, int.MaxValue)]

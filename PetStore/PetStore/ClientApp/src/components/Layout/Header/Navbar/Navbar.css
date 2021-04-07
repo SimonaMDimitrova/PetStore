@@ -5,6 +5,7 @@
     left: 0;
     border-top: 1em solid #fff;
     font-family: 'Montserrat';
+    z-index: 999;
 }
 
 .navbar-items {

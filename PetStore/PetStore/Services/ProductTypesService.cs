@@ -1,12 +1,9 @@
 ﻿namespace PetStore.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     using PetStore.Data;
-    using PetStore.Data.Models;
 
     public class ProductTypesService : IProductTypesService
     {
@@ -15,19 +12,6 @@
         public ProductTypesService(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
-        }
-
-        public async Task AddAsync(string name)
-        {
-            var productType = new ProductType
-            {
-                Name = name,
-                CreatedOn = DateTime.UtcNow,
-                IsDeleted = false,
-            };
-
-            await this.dbContext.ProductTypes.AddAsync(productType);
-            await this.dbContext.SaveChangesAsync();
         }
 
         public IEnumerable<KeyValuePair<string, string>> GetByKeyValuePairs()

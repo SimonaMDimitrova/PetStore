@@ -24,5 +24,7 @@
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<ProductOrder> ProductOrders { get; set; }
+
+        public DbSet<ProductImage> ProductImages { get; set; }
     }
 }

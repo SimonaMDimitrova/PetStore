@@ -11,7 +11,7 @@ const Products = () => {
 
     return (
         <section className="products-wrapper">
-            <Link to="/product/create" className="btn btn-link">New product</Link>
+            <Link to="/product/create" className="btn btn-link">Create product</Link>
             <h3>Found: 123 results</h3>
             <article className="products-container">
                 <Product

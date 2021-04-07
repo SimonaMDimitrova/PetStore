@@ -1,6 +1,7 @@
 ﻿namespace PetStore.Services
 {
     using System;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@
             this.dbContext = dbContext;
         }
 
-        public async Task AddAsync(AddProductModel input)
+        public async Task<Product> CreateAsync(AddProductModel input, string imagePath)
         {
             var product = new Product
             {
@@ -30,8 +31,28 @@
                 CreatedOn = DateTime.UtcNow,
             };
 
+            Directory.CreateDirectory(imagePath);
+            if (input.Image != null)
+            {
+                var image = input.Image;
+                var extension = Path.GetExtension(image.FileName).TrimStart('.');
+
+                var productImage = new ProductImage
+                {
+                    Extention = extension,
+                    Product = product,
+                    CreatedOn = DateTime.UtcNow,
+                };
+
+                var physicalPath = $"{imagePath}{productImage.Id}.{extension}";
+                using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+                await image.CopyToAsync(fileStream);
+            }
+
             await this.dbContext.AddAsync(product);
             await this.dbContext.SaveChangesAsync();
+
+            return product;
         }
 
         public async Task DeleteAsync(string id)

@@ -5,8 +5,6 @@
 
     public interface IPetsService
     {
-        public Task AddAsync(string name);
-
         public IEnumerable<KeyValuePair<string, string>> GetByKeyValuePairs();
     }
 }

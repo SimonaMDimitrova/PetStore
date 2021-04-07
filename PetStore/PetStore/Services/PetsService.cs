@@ -17,19 +17,6 @@
             this.dbContext = dbContext;
         }
 
-        public async Task AddAsync(string name)
-        {
-            var pet = new Pet
-            {
-                Name = name,
-                CreatedOn = DateTime.UtcNow,
-                IsDeleted = false,
-            };
-
-            await this.dbContext.Pets.AddAsync(pet);
-            await this.dbContext.SaveChangesAsync();
-        }
-
         public IEnumerable<KeyValuePair<string, string>> GetByKeyValuePairs()
         {
             return this.dbContext

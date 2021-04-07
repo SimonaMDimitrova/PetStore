@@ -8,9 +8,11 @@ namespace PetStore
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+
     using PetStore.Data;
     using PetStore.Data.Models;
     using PetStore.Data.Seeding;
+    using PetStore.Services;
 
     public class Startup
     {
@@ -47,6 +49,10 @@ namespace PetStore
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddTransient<IPetsService, PetsService>();
+            services.AddTransient<IProductTypesService, ProductTypesService>();
+            services.AddTransient<IProductsService, ProductsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

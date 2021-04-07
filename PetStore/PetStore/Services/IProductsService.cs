@@ -2,11 +2,12 @@
 {
     using System.Threading.Tasks;
 
+    using PetStore.Data.Models;
     using PetStore.Models;
 
     public interface IProductsService
     {
-        public Task AddAsync(AddProductModel input);
+        public Task<Product> CreateAsync(AddProductModel input, string imagePath);
 
         public EditProductModel GetById(string id);
 
