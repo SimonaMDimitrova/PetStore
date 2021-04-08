@@ -81,3 +81,8 @@ blockquote {
         blockquote p:last-child {
             padding-bottom: 0px;
         }
+
+button:focus,
+input[type=submit]:focus {
+    outline: none;
+}

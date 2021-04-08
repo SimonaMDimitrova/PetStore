@@ -1,13 +1,27 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Product.css'
+import * as productsService from '../../../services/productsService';
+
+import './Product.css';
 
 const Product = (props) => {
+    const onDeleteSubmitHandler = (e) => {
+        e.preventDefault();
+
+        let productId = e.target.product.value;
+        productsService.$delete(productId)
+            .then(res => {
+                console.log("Successfully deleted!");
+            });
+
+        console.log(props.history);
+    }
+
     return (
         <article className="product-container">
             <article className="product-in-search-image-container">
-                <button className="delete-product"><i className="fas fa-times"></i></button>
+                <Link to={`/product/${props.id}/delete`} className="delete-product"><i className="fas fa-times"></i></Link>
                 <Link to={`/products/product`}><img className="product-in-search-image" src={props.image} alt={props.productName} /></Link>
             </article>
 

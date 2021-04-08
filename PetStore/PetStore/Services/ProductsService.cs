@@ -40,13 +40,14 @@
                 var productImage = new ProductImage
                 {
                     Extention = extension,
-                    Product = product,
                     CreatedOn = DateTime.UtcNow,
                 };
 
                 var physicalPath = $"{imagePath}{productImage.Id}.{extension}";
                 using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
                 await image.CopyToAsync(fileStream);
+
+                product.ProductImage = productImage;
             }
 
             await this.dbContext.AddAsync(product);
@@ -59,10 +60,25 @@
         {
             var product = this.dbContext
                 .Products
-                .FirstOrDefault(p => p.Id == id);
+                .FirstOrDefault(p => p.Id == id && p.IsDeleted == false);
+            if (product == null)
+            {
+                throw new NullReferenceException("There is no product found.");
+            }
 
-            // TODO: Throw exeption if it's null
-            this.dbContext.Remove(product);
+            var productImage = this.dbContext
+                .Products
+                .Select(p => p.ProductImage)
+                .FirstOrDefault();
+            if (productImage != null)
+            {
+                productImage.DeletedOn = DateTime.UtcNow;
+                productImage.IsDeleted = true;
+            }
+
+            product.DeletedOn = DateTime.UtcNow;
+            product.IsDeleted = true;
+
             await this.dbContext.SaveChangesAsync();
         }
 
@@ -81,6 +97,31 @@
             await this.dbContext.SaveChangesAsync();
         }
 
+        public ProductsListModel GetAll()
+        {
+            var products = this.dbContext
+                .Products
+                .Where(p => p.Capacity > 0 && p.IsDeleted == false)
+                .OrderByDescending(p => p.CreatedOn)
+                .Select(p => new ProductInListModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Price = p.Price,
+                    ImagePath = p.ProductImage != null
+                        ? $"/images/products/{p.ProductImageId}.{p.ProductImage.Extention}"
+                        : "/images/defaults/placeholder.png",
+                })
+                .ToList();
+
+            var productsList = new ProductsListModel
+            {
+                Products = products,
+            };
+
+            return productsList;
+        }
+
         public EditProductModel GetById(string id)
         {
             return this.dbContext
@@ -92,6 +133,19 @@
                     Name = p.Name,
                     Price = p.Price,
                     Capacity = p.Capacity,
+                })
+                .FirstOrDefault();
+        }
+
+        public ProductNameModel GetName(string id)
+        {
+            return this.dbContext
+                .Products
+                .Where(p => p.Id == id && p.IsDeleted == false)
+                .Select(p => new ProductNameModel
+                {
+                    Name = p.Name,
+                    Id = p.Id,
                 })
                 .FirstOrDefault();
         }

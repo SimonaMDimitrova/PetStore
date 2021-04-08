@@ -6,6 +6,7 @@ import Contacts from '../../Contacts/Contacts';
 import SingleProduct from '../../SingleProduct/SingleProduct';
 import CreateProduct from '../../CreateProduct/CreateProduct';
 import EditProduct from '../../EditProduct/EditProduct';
+import DeleteProduct from '../../DeleteProduct/DeleteProduct';
 import Cart from '../../Cart/Cart';
 import Order from '../../Order/Order';
 
@@ -18,10 +19,11 @@ const MainContent = () => {
                 <ProductFilter />
 
                 <Switch>
-                    <Route exact path='/' component={Products} />
+                    <Route path='/' exact component={Products} />
                     <Route path='/contacts' component={Contacts} />
                     <Route path='/products/product' component={SingleProduct} />
-                    <Route path='/product/create' component={CreateProduct} />
+                    <Route path='/product/create' exact component={CreateProduct} />
+                    <Route path='/product/:id/delete' exact component={DeleteProduct} />
                     <Route path='/editProduct' component={EditProduct} />
                     <Route path='/cart' component={Cart} />
                     <Route path='/order' component={Order} />

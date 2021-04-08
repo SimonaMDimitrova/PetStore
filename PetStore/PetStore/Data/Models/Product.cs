@@ -25,5 +25,9 @@
         public string PetId { get; set; }
 
         public Pet Pet { get; set; }
+
+        public string ProductImageId { get; set; }
+
+        public ProductImage ProductImage { get; set; }
     }
 }

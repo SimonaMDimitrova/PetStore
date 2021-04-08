@@ -1,6 +1,8 @@
-﻿import React, { useEffect } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Product from './Product/Product';
+
+import * as productsService from '../../services/productsService';
 
 import './Products.css';
 
@@ -9,38 +11,30 @@ const Products = () => {
         document.title = "Pet store"
     }, []);
 
+    const [productsState, setProductsState] = useState({});
+    useEffect(() => {
+        productsService.getAll()
+            .then(products => setProductsState(products));
+    }, [])
+
     return (
         <section className="products-wrapper">
             <Link to="/product/create" className="btn btn-link">Create product</Link>
-            <h3>Found: 123 results</h3>
+            <h3>{`Found: ${productsState.products && productsState.products.length > 0 ? productsState.products.length : 0} results`}</h3>
             <article className="products-container">
-                <Product
-                    key="product_1"
-                    id="1"
-                    image="https://assetcdn.buhlergroup.com/rendition/874601345621/ab5fbfba5dc54202983d10bfb6473098/-TwebHeader_16x9"
-                    productName="Title of product"
-                    price="5.00$" />
 
-                <Product
-                    key="product_2"
-                    id="2"
-                    image="https://assetcdn.buhlergroup.com/rendition/874601345621/ab5fbfba5dc54202983d10bfb6473098/-TwebHeader_16x9"
-                    productName="Title of product"
-                    price="5.00$" />
+                {productsState.products && productsState.products.length > 0
+                    ? productsState.products
+                        .map(product => {
+                            return (<Product
+                                key={`product_${product.id}`}
+                                id={product.id}
+                                image={product.imagePath}
+                                productName={product.name}
+                                price={`${product.price}$`} />)
+                        })
+                    : null}
 
-                <Product
-                    key="product_3"
-                    id="3"
-                    image="https://assetcdn.buhlergroup.com/rendition/874601345621/ab5fbfba5dc54202983d10bfb6473098/-TwebHeader_16x9"
-                    productName="Title of product"
-                    price="5.00$" />
-
-                <Product
-                    key="product_4"
-                    id="4"
-                    image="https://assetcdn.buhlergroup.com/rendition/874601345621/ab5fbfba5dc54202983d10bfb6473098/-TwebHeader_16x9"
-                    productName="Title of product"
-                    price="5.00$" />
             </article>
         </section>
     );

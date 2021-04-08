@@ -30,7 +30,7 @@
 }
 
 .product-in-search-image {
-    height: 100%;
+    width: 100%;
 }
 
 .link-display-block {
@@ -48,4 +48,8 @@
     font-size: 1.0em;
     width: 20px;
     height: 20px;
+}
+
+.no-margin {
+    margin: 0;
 }

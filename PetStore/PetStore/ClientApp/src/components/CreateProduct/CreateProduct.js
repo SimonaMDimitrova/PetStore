@@ -19,7 +19,7 @@ const CreateProduct = ({
             .then(pets => setPetsState(pets));
     }, [])
 
-    const [productTypesState, setProductTypesState] = useState();
+    const [productTypesState, setProductTypesState] = useState({});
     useEffect(() => {
         productTypesService.getAll()
             .then(productTypes => setProductTypesState(productTypes));
@@ -71,9 +71,9 @@ const CreateProduct = ({
             pet.value,
             productType.value,
             imageFile
-        );
-
-        console.log(productState.image);
+        )
+            .then(() => history.push('/'))
+            .catch(err => console.log('Handled error:' + err));
     };
 
     return (

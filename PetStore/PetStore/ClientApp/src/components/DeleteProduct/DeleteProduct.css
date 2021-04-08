@@ -1,0 +1,7 @@
+﻿.delete-form {
+    text-align: center;
+}
+
+    .delete-form input:first-child {
+        margin-right: 0.3em;
+    }
