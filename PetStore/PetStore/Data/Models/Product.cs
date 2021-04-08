@@ -17,6 +17,8 @@
         // [ConcurrencyCheck]
         public int Capacity { get; set; }
 
+        public string Description { get; set; }
+
         [Required]
         public string ProductTypeId { get; set; }
 

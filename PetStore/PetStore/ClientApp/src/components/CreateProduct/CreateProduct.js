@@ -33,6 +33,7 @@ const CreateProduct = ({
             pet: '',
             productType: '',
             image: null,
+            description: '',
         });
 
     const [errorsState, setErrorsState] =
@@ -45,7 +46,7 @@ const CreateProduct = ({
     const onCreateProductSubmitHandler = (e) => {
         e.preventDefault();
 
-        const { name, price, capacity, pet, productType, image } = e.target;
+        const { name, price, capacity, pet, productType, image, description } = e.target;
 
         setErrorsState({
             nameError: errorHadlersService.onNameErrorHandler(name.value),
@@ -62,6 +63,7 @@ const CreateProduct = ({
             pet: pet.value,
             productType: productType.value,
             image: imageFile,
+            description: description.value,
         });
 
         productsService.create(
@@ -70,7 +72,8 @@ const CreateProduct = ({
             capacity.value,
             pet.value,
             productType.value,
-            imageFile
+            imageFile,
+            description.value
         )
             .then(() => history.push('/'))
             .catch(err => console.log('Handled error:' + err));
@@ -89,7 +92,7 @@ const CreateProduct = ({
 
                 <article className="group-control">
                     <label htmlFor="price" className="group-control">Price</label>
-                    <input name="price" id="price" type="text" defaultValue={productState.price} className="input-control input-default" />
+                    <input name="price" step=".01" id="price" type="text" defaultValue={productState.price} className="input-control input-default" />
                     <InputError message={errorsState.priceError} />
                 </article>
 
@@ -141,6 +144,13 @@ const CreateProduct = ({
 
                 <article className="group-control">
                     <input name="image" id="image" type="file" accept="image/png, image/jpeg" />
+                </article>
+
+                <article className="group-control">
+                    <label htmlFor="description" className="group-control">Description</label>
+                    <textarea name="description" rows="8" id="description" type="number" defaultValue={productState.description} className="input-control input-default">
+                    </textarea>
+                    <InputError message={errorsState.capacityError} />
                 </article>
 
                 <input type="submit" value="Create" className="btn btn-primary" />

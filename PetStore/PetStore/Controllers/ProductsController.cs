@@ -20,6 +20,25 @@
             this.productsService = productsService;
         }
 
+        [HttpGet]
+        public ActionResult<ProductsListModel> GetAll()
+        {
+            var model = this.productsService.GetAll();
+            return model;
+        }
+
+        [HttpGet("GetOne")]
+        public ActionResult<SingleProductModel> GetOne(string id)
+        {
+            var model = this.productsService.GetById(id);
+            if (model == null)
+            {
+                return this.BadRequest();
+            }
+
+            return model;
+        }
+
         [HttpGet("Name")]
         public ActionResult<ProductNameModel> GetName(string id)
         {
@@ -32,10 +51,23 @@
             return model;
         }
 
-        [HttpGet]
-        public ActionResult<ProductsListModel> Get()
+        [HttpGet("Edit")]
+        public ActionResult<EditProductModel> GetEditModel(string id)
         {
-            var model = this.productsService.GetAll();
+            var model = this.productsService.GetByIdEditModel(id);
+            if (model == null)
+            {
+                return this.BadRequest();
+            }
+
+            return model;
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Product>> PostEditModel([FromForm] EditProductModel input)
+        {
+            var model = await this.productsService.EditAsync(input);
+
             return model;
         }
 

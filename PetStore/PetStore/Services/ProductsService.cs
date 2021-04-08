@@ -27,6 +27,7 @@
                 Capacity = input.Capacity,
                 PetId = input.PetId,
                 ProductTypeId = input.ProductTypeId,
+                Description = input.Description,
                 IsDeleted = false,
                 CreatedOn = DateTime.UtcNow,
             };
@@ -82,7 +83,7 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task EditAsync(EditProductModel input)
+        public async Task<Product> EditAsync(EditProductModel input)
         {
             var product = this.dbContext
                 .Products
@@ -95,6 +96,8 @@
             product.ModifiedOn = DateTime.UtcNow;
 
             await this.dbContext.SaveChangesAsync();
+
+            return product;
         }
 
         public ProductsListModel GetAll()
@@ -122,7 +125,25 @@
             return productsList;
         }
 
-        public EditProductModel GetById(string id)
+        public SingleProductModel GetById(string id)
+        {
+            return this.dbContext
+                .Products
+                .Where(p => p.Id == id)
+                .Select(p => new SingleProductModel
+                {
+                    Id = p.Id,
+                    Description = p.Description,
+                    ImagePath = p.ProductImage != null
+                        ? $"/images/products/{p.ProductImageId}.{p.ProductImage.Extention}"
+                        : "/images/defaults/placeholder.png",
+                    Name = p.Name,
+                    Price = p.Price,
+                })
+                .FirstOrDefault();
+        }
+
+        public EditProductModel GetByIdEditModel(string id)
         {
             return this.dbContext
                 .Products

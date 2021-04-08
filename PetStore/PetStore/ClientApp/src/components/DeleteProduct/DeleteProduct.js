@@ -13,7 +13,11 @@ const DeleteProduct = ({
     });
     useEffect(() => {
         productsService.getName(match.params.id)
-            .then(res => setState({id: res.id, name: res.name}))
+            .then(res => setState({ id: res.id, name: res.name }))
+    }, []);
+
+    useEffect(() => {
+        document.title = 'Delete product';
     }, []);
 
     const onDeleteClickHandler = (e) => {
@@ -35,7 +39,7 @@ const DeleteProduct = ({
     return (
         <section className="products-wrapper single-product">
             <h3 className="header">Are you sure you want to delete {state.name}?</h3>
-            <form class="delete-form">
+            <form className="delete-form">
                 <input type="submit" name="confirm" value="Yes" onClick={onDeleteClickHandler} className="btn" />
                 <input type="submit" name="cancel" value="No" onClick={onRejectClickHandler} className="btn btn-primary" />
             </form>

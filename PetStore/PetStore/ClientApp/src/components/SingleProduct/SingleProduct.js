@@ -1,22 +1,33 @@
-﻿import React, { useEffect } from 'react';
+﻿import React, { useEffect, useState } from 'react';
+
+import * as productsService from '../../services/productsService';
 
 import './SingleProduct.css';
 
-const SingleProduct = () => {
+const SingleProduct = ({
+    match
+}) => {
+    const [state, setState] = useState({});
     useEffect(() => {
-        document.title = "Single product NAME";
+        productsService.getOne(match.params.id)
+            .then(res => setState(res))
+    });
+
+    useEffect(() => {
+        document.title = "View product";
     }, []);
 
     return (
         <section className="products-wrapper single-product">
-            <h3 className="header">Title of product</h3>
+            <h3 className="header">{state.name}</h3>
 
             <article className="single-product-container">
                 <article className="single-product-image-container">
-                    <img src="https://assetcdn.buhlergroup.com/rendition/874601345621/ab5fbfba5dc54202983d10bfb6473098/-TwebHeader_16x9" alt="" />
+
+                    <img src={state.imagePath} alt="" />
 
                     <p className="product-count">
-                        <p className="product-in-search-price single inline">5.00$</p>
+                        <p className="product-in-search-price single inline">{state.price}</p>
 
                         <input type="number" placeholder="0" className="input-control increase-product-count" />
                     </p>
@@ -25,7 +36,7 @@ const SingleProduct = () => {
                 </article>
 
                 <article className="single-product-description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam blanditiis eligendi autem animi quos reprehenderit modi ullam ut officiis minus, maxime non sint optio cum voluptatem ad doloremque maiores. Earum.
+                    {state.description !== null ? state.description : `There is no description for ${state.name} product.`}
                 </article>
             </article>
         </section>

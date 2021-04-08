@@ -21,10 +21,10 @@ const MainContent = () => {
                 <Switch>
                     <Route path='/' exact component={Products} />
                     <Route path='/contacts' component={Contacts} />
-                    <Route path='/products/product' component={SingleProduct} />
                     <Route path='/product/create' exact component={CreateProduct} />
+                    <Route path='/product/:id' exact component={SingleProduct} />
                     <Route path='/product/:id/delete' exact component={DeleteProduct} />
-                    <Route path='/editProduct' component={EditProduct} />
+                    <Route path='/product/:id/edit' exact component={EditProduct} />
                     <Route path='/cart' component={Cart} />
                     <Route path='/order' component={Order} />
                 </Switch>
