@@ -6,3 +6,7 @@
     max-width: 17em;
     border-right: 1px solid lightgray;
 }
+
+.no-margins {
+    margin: 0;
+}

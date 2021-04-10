@@ -5,21 +5,9 @@
 }; 
 
 export const onPriceErrorHandler = (price) => {
-    //if (typeof(price) !== 'number') {
-    //    return 'Enter valid price!';
-    //} else {
-    //    return '';
-    //}
-
     return price < 0.01 ? 'Price cannot be 0.' : '';
 };
 
 export const onCapacityErrorHandler = (capacity) => {
-    //if (typeof (capacity) !== 'number') {
-    //    return 'Enter valid capacity!';
-    //} else {
-    //    return '';
-    //}
-
     return capacity < 0 ? 'Capacity cannot be negative.' : '';
 };

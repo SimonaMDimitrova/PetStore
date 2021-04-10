@@ -110,7 +110,7 @@
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Price = p.Price,
+                    Price = string.Format("{0:0.00}", p.Price),
                     ImagePath = p.ProductImage != null
                         ? $"/images/products/{p.ProductImageId}.{p.ProductImage.Extention}"
                         : "/images/defaults/placeholder.png",
@@ -138,7 +138,9 @@
                         ? $"/images/products/{p.ProductImageId}.{p.ProductImage.Extention}"
                         : "/images/defaults/placeholder.png",
                     Name = p.Name,
-                    Price = p.Price,
+                    Price = string.Format("{0:0.00}", p.Price),
+                    PetType = p.Pet.Name,
+                    ProductType = p.ProductType.Name,
                 })
                 .FirstOrDefault();
         }
@@ -156,6 +158,31 @@
                     Capacity = p.Capacity,
                 })
                 .FirstOrDefault();
+        }
+
+        public ProductsListModel GetBySearchedParameters(string name)
+        {
+            var products = this.dbContext
+                .Products
+                .Where(p => p.Capacity > 0 && p.IsDeleted == false && p.Name == name)
+                .OrderByDescending(p => p.CreatedOn)
+                .Select(p => new ProductInListModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Price = string.Format("{0:0.00}", p.Price),
+                    ImagePath = p.ProductImage != null
+                        ? $"/images/products/{p.ProductImageId}.{p.ProductImage.Extention}"
+                        : "/images/defaults/placeholder.png",
+                })
+                .ToList();
+
+            var productsList = new ProductsListModel
+            {
+                Products = products,
+            };
+
+            return productsList;
         }
 
         public ProductNameModel GetName(string id)

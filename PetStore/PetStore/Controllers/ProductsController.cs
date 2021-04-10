@@ -39,6 +39,13 @@
             return model;
         }
 
+        [HttpGet("Search")]
+        public ActionResult<ProductsListModel> GetBySearchedParameters(string name)
+        {
+            var model = this.productsService.GetBySearchedParameters(name);
+            return model;
+        }
+
         [HttpGet("Name")]
         public ActionResult<ProductNameModel> GetName(string id)
         {

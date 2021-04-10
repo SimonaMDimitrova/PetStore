@@ -21,5 +21,7 @@
         public Task DeleteAsync(string id);
 
         public ProductNameModel GetName(string id);
+
+        public ProductsListModel GetBySearchedParameters(string name);
     }
 }
