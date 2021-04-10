@@ -9,8 +9,8 @@ const Login = ({
     const { isAuthenticated, email } = useContext(AuthContext);
 
     useEffect(() => {
-        if (!isAuthenticated) {
-            history.push('/');
+        if (isAuthenticated) {
+            return history.push('/');
         }
     }, [isAuthenticated]);
 

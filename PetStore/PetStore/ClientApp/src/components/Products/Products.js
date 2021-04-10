@@ -9,27 +9,10 @@ import AuthContext from '../../contexts/AuthContext';
 
 import './Products.css';
 
-const Products = () => {
+const Products = ({
+    history
+}) => {
     const { isAuthenticated, email } = useContext(AuthContext);
-
-    useEffect(() => {
-        if (!isAuthenticated) {
-            return;
-        }
-
-        firebase.auth().currentUser.getIdToken()
-            .then(function (idToken) {
-                return fetch('http://localhost:44340', {
-                    headers: {
-                        'Authorization': idToken,
-                    }
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            });
-    }, [isAuthenticated]);
 
     useEffect(() => {
         document.title = "Pet store"

@@ -9,8 +9,8 @@ const Register = ({
     const { isAuthenticated, email } = useContext(AuthContext);
 
     useEffect(() => {
-        if (!isAuthenticated) {
-            history.push('/');
+        if (isAuthenticated) {
+            return history.push('/');
         }
     }, [isAuthenticated]);
 
@@ -31,7 +31,7 @@ const Register = ({
                 .then(res => console.log('success'))
                 .catch(err => console.log('Handled error:' + err));
 
-            history.push('/login');
+            history.push('/');
         }
     };
 

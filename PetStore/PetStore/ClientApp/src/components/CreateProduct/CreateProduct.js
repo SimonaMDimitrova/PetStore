@@ -15,25 +15,6 @@ const CreateProduct = ({
     const { isAuthenticated, email } = useContext(AuthContext);
 
     useEffect(() => {
-        if (!isAuthenticated) {
-            return history.push('/');
-        }
-
-        firebase.auth().currentUser.getIdToken()
-            .then(function (idToken) {
-                return fetch('http://localhost:44340', {
-                    headers: {
-                        'Authorization': idToken,
-                    }
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            });
-    }, [isAuthenticated]);
-
-    useEffect(() => {
         document.title = "Create product";
     }, [])
 
