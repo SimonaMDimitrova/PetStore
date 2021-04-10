@@ -9,10 +9,14 @@ import EditProduct from '../../EditProduct/EditProduct';
 import DeleteProduct from '../../DeleteProduct/DeleteProduct';
 import Cart from '../../Cart/Cart';
 import Order from '../../Order/Order';
+import Login from '../../Login/Login';
+import Register from '../../Register/Register';
+
+import firebase from '../../../utils/firebase';
 
 import './MainContent.css';
 
-const MainContent = () => {
+const MainContent = (props) => {
     return (
         <main className="main-content">
             <section className="main-content-container">
@@ -27,6 +31,14 @@ const MainContent = () => {
                     <Route path='/product/:id/edit' exact component={EditProduct} />
                     <Route path='/cart' component={Cart} />
                     <Route path='/order' component={Order} />
+                    <Route path='/login' component={Login} />
+                    <Route path='/register' component={Register} />
+                    <Route path='/logout' render={props => {
+                        firebase.auth().signOut()
+                            .then(res => console.log('success'))
+                            .catch(err => console.log('Handled error:' + err));
+                        props.history.push('/');
+                    }} />
                 </Switch>
 
             </section>

@@ -1,7 +1,31 @@
-﻿import React, { useEffect } from 'react';
+﻿import React, { useEffect, useContext } from 'react';
+
 import emailjs from 'emailjs-com';
+import firebase from '../../utils/firebase';
+import AuthContext from '../../contexts/AuthContext';
 
 const Contacts = () => {
+    const { isAuthenticated, email } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            return;
+        }
+
+        firebase.auth().currentUser.getIdToken()
+            .then(function (idToken) {
+                return fetch('http://localhost:44340', {
+                    headers: {
+                        'Authorization': idToken,
+                    }
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+    }, [isAuthenticated]);
+
     useEffect(() => {
         document.title = "Pet store - Products"
     }, []);
@@ -30,7 +54,7 @@ const Contacts = () => {
             <form onSubmit={onSendEmailSubmitHandler}>
                 <article className="group-control">
                     <label htmlFor="mail" className="group-control">From</label>
-                    <input type="text" name="mail" id="mail" className="input-control input-default" />
+                    <input type="text" name="mail" id="mail" className="input-control input-default" defaultValue={email} />
                 </article>
 
                 <article className="group-control">

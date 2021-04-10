@@ -1,12 +1,36 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Product from './Product/Product';
 
 import * as productsService from '../../services/productsService';
 
+import firebase from '../../utils/firebase';
+import AuthContext from '../../contexts/AuthContext';
+
 import './Products.css';
 
 const Products = () => {
+    const { isAuthenticated, email } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            return;
+        }
+
+        firebase.auth().currentUser.getIdToken()
+            .then(function (idToken) {
+                return fetch('http://localhost:44340', {
+                    headers: {
+                        'Authorization': idToken,
+                    }
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+    }, [isAuthenticated]);
+
     useEffect(() => {
         document.title = "Pet store"
     }, []);
@@ -19,7 +43,9 @@ const Products = () => {
 
     return (
         <section className="products-wrapper">
-            <Link to="/product/create" className="btn btn-link">Create product</Link>
+            {isAuthenticated
+                ? <Link to="/product/create" className="btn btn-link">Create product</Link>
+                : ''}
             <h3>{`Found: ${productsState.products && productsState.products.length > 0 ? productsState.products.length : 0} results`}</h3>
             <article className="products-container">
 
@@ -31,7 +57,8 @@ const Products = () => {
                                 id={product.id}
                                 image={product.imagePath}
                                 productName={product.name}
-                                price={`${product.price}$`} />)
+                                price={`${product.price}$`}
+                                isAuthenticated={isAuthenticated} />)
                         })
                     : null}
 

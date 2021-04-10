@@ -1,13 +1,37 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState, useContext } from 'react';
 import InputError from '../Shared/InputError';
 
 import * as productsService from '../../services/productsService';
 import * as errorHadlersService from '../../services/errorHandlersService';
 
+import firebase from '../../utils/firebase';
+import AuthContext from '../../contexts/AuthContext';
+
 const EditProduct = ({
     match,
     history
 }) => {
+    const { isAuthenticated, email } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            return history.push('/');
+        }
+
+        firebase.auth().currentUser.getIdToken()
+            .then(function (idToken) {
+                return fetch('http://localhost:44340', {
+                    headers: {
+                        'Authorization': idToken,
+                    }
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+    }, [isAuthenticated]);
+
     const [productState, setProductState] = useState({});
 
     useEffect(() => {

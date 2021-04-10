@@ -1,12 +1,36 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState, useContext } from 'react';
 import './DeleteProduct.css';
 
 import * as productsService from '../../services/productsService';
+
+import firebase from '../../utils/firebase';
+import AuthContext from '../../contexts/AuthContext';
 
 const DeleteProduct = ({
     match,
     history
 }) => {
+    const { isAuthenticated, email } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            return history.push('/');
+        }
+
+        firebase.auth().currentUser.getIdToken()
+            .then(function (idToken) {
+                return fetch('http://localhost:44340', {
+                    headers: {
+                        'Authorization': idToken,
+                    }
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+    }, [isAuthenticated]);
+
     const [state, setState] = useState({
         id: '',
         name: ''

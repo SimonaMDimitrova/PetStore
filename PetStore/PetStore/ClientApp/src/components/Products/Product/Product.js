@@ -7,14 +7,22 @@ const Product = (props) => {
     return (
         <article className="product-container">
             <article className="product-in-search-image-container">
-                <Link to={`/product/${props.id}/delete`} className="delete-product"><i className="fas fa-times"></i></Link>
+
+                {props.isAuthenticated
+                    ? <Link to={`/product/${props.id}/delete`} className="delete-product"><i className="fas fa-times"></i></Link>
+                    : ''}
+
                 <Link to={`/product/${props.id}`}><img className="product-in-search-image" src={props.image} alt={props.productName} /></Link>
             </article>
 
             <h4 className="product-in-search-header">{props.productName}</h4>
             <p className="product-in-search-price">{props.price}</p>
             <button className="btn btn-primary">Add to cart</button>
-            <Link to={`/product/${props.id}/edit`} className="btn btn-link link-display-block">Edit</Link>
+
+            {props.isAuthenticated
+                ? <Link to={`/product/${props.id}/edit`} className="btn btn-link link-display-block">Edit</Link>
+                : ''}
+
         </article>
     );
 };
