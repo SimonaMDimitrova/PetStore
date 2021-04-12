@@ -41,9 +41,10 @@ const Products = ({
                                 image={product.imagePath}
                                 productName={product.name}
                                 price={`${product.price}$`}
+                                capacity={`Capacity: ${product.capacity}`}
                                 isAuthenticated={isAuthenticated} />)
                         })
-                    : null}
+                    : <>Loading ...</>}
 
             </article>
         </section>

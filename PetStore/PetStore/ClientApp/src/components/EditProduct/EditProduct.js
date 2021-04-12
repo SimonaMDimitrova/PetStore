@@ -48,7 +48,7 @@ const EditProduct = ({
             name: name.value,
             price: price.value,
             capacity: capacity.value,
-            id: id
+            id: id.value
         });
 
         productsService.edit(

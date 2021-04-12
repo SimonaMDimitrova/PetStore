@@ -54,3 +54,7 @@
 .no-margin {
     margin: 0;
 }
+
+.padding-top {
+    padding-top: 0.2em;
+}

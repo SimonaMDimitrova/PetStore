@@ -104,17 +104,19 @@
         {
             var products = this.dbContext
                 .Products
-                .Where(p => p.Capacity > 0 && p.IsDeleted == false)
+                .Where(p => p.IsDeleted == false)
                 .OrderByDescending(p => p.CreatedOn)
                 .Select(p => new ProductInListModel
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Price = string.Format("{0:0.00}", p.Price),
+                    Capacity = p.Capacity,
                     ImagePath = p.ProductImage != null
                         ? $"/images/products/{p.ProductImageId}.{p.ProductImage.Extention}"
                         : "/images/defaults/placeholder.png",
                 })
+                .OrderByDescending(p => p.Capacity)
                 .ToList();
 
             var productsList = new ProductsListModel
@@ -164,17 +166,19 @@
         {
             var products = this.dbContext
                 .Products
-                .Where(p => p.Capacity > 0 && p.IsDeleted == false && p.Name == name)
+                .Where(p => p.IsDeleted == false && p.Name == name)
                 .OrderByDescending(p => p.CreatedOn)
                 .Select(p => new ProductInListModel
                 {
                     Id = p.Id,
                     Name = p.Name,
                     Price = string.Format("{0:0.00}", p.Price),
+                    Capacity = p.Capacity,
                     ImagePath = p.ProductImage != null
                         ? $"/images/products/{p.ProductImageId}.{p.ProductImage.Extention}"
                         : "/images/defaults/placeholder.png",
                 })
+                .OrderByDescending(p => p.Capacity)
                 .ToList();
 
             var productsList = new ProductsListModel

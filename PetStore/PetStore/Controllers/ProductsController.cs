@@ -73,6 +73,11 @@
         [HttpPut]
         public async Task<ActionResult<Product>> PostEditModel([FromForm] EditProductModel input)
         {
+            if (input.Name.Length < 3 || input.Name.Length > 70)
+            {
+                return this.BadRequest();
+            }
+
             var model = await this.productsService.EditAsync(input);
 
             return model;
@@ -81,6 +86,11 @@
         [HttpPost]
         public async Task<ActionResult<Product>> Post([FromForm] AddProductModel input)
         {
+            if (input.Name.Length < 3 || input.Name.Length > 70)
+            {
+                return this.BadRequest();
+            }
+
             var model = await this.productsService.CreateAsync(input, "./ClientApp/public/images/products/");
             return this.Ok(model);
         }
